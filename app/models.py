@@ -100,7 +100,7 @@ class Request(SQLModel, table=True):
     status: RequestStatus = Field(default=RequestStatus.PENDING)
     supporting_documents: List[str] = Field(default=[], sa_column=Column(JSON))  # List of file IDs
     manager_notes: Optional[str] = Field(default=None, max_length=500)
-    reviewed_by: Optional[int] = Field(default=None, foreign_key="users.id")
+    reviewed_by: Optional[int] = Field(default=None)
     reviewed_at: Optional[datetime] = Field(default=None)
     created_at: datetime = Field(default_factory=datetime.utcnow)
     updated_at: datetime = Field(default_factory=datetime.utcnow)
